@@ -1,0 +1,26 @@
+provider,speed_mbps,plan_name,advertised_usd,after_promo_usd
+Spectrum,100,Internet Advantage,30,65
+Spectrum,500,Internet Premier,40,85
+Spectrum,1000,Internet Gig,60,105
+Xfinity,300,300 Mbps,40,0
+Xfinity,1000,1 Gig,50,100
+Xfinity,2000,2 Gig,100,0
+AT&T Fiber,300,Internet 300,55,0
+AT&T Fiber,500,Internet 500,65,0
+AT&T Fiber,1000,Internet 1000,80,0
+Google Fiber,1000,Core 1 Gig,70,0
+Google Fiber,3000,Home 3 Gig,100,0
+Google Fiber,8000,Edge 8 Gig,150,0
+T-Mobile 5G Home,300,Rely,50,0
+T-Mobile 5G Home,415,Amplified,60,0
+T-Mobile 5G Home,500,All-In,70,0
+T-Mobile Fiber,300,Fiber 300,40,0
+T-Mobile Fiber,500,Fiber 500,55,0
+T-Mobile Fiber,1000,Fiber 1 Gig,75,0
+T-Mobile Fiber,2000,Fiber 2 Gig,95,0
+Verizon Fios,300,Fios 300 Mbps,49.99,0
+Verizon Fios,500,Fios 500 Mbps,74.99,0
+Verizon Fios,1000,Fios 1 Gig,89.99,0
+Verizon Fios,2000,Fios 2 Gig,109.99,0
+Verizon 5G Home,500,5G Home Plus,60,0
+Verizon 5G Home,1000,5G Home Ultimate,75,0

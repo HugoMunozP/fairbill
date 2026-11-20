@@ -1,0 +1,97 @@
+/* VOICE work tool for everyday money: calm, exact, a little defiant
+   IDEA a bill held up next to your neighbors' bills, like a price check at the register
+   PICTURE the live strip of every neighbor's price, your bill as a hot-pink marker
+   COLOUR ice ground, deep ink, hot pink for "you", green for savings
+   TYPE Space Grotesk 500/700 + Inter
+   LAYOUT laptop: form left, big result+strip right; phone: title, result, form */
+:root{color-scheme:light dark;--bg:light-dark(#dff1f7,#06222e);--ink:light-dark(#06222e,#dff1f7);--card:light-dark(#ffffff,#0b3445);--line:light-dark(#b6d6e2,#1f4c5e);--mute:light-dark(#3b5c68,#9cc3d0);--pink:#ff2e7e;--pinkt:light-dark(#c8105a,#ff6ea6);--good:light-dark(#08724e,#5ad6a6)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,.logo,.big{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.02em}
+h1{font-size:clamp(34px,5vw,52px);line-height:1.05;margin:0 0 10px;text-wrap:balance;font-weight:700}
+h2{font-size:clamp(26px,3.4vw,36px);line-height:1.1;margin:0 0 12px;text-wrap:balance}
+h3{font-size:20px;margin:0 0 6px}
+p{margin:0 0 12px;max-width:68ch}
+a{color:inherit}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:12px max(5vw,16px)}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:22px;text-decoration:none}
+.links{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto;font-size:15px}
+.links a{text-decoration:none;color:var(--mute)}
+.links a:hover{color:var(--ink)}
+.btn{font:600 16px Inter,sans-serif;border:0;border-radius:10px;padding:12px 18px;min-height:44px;background:var(--ink);color:var(--bg);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.pink{background:var(--pink);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.lede{font-size:18px;color:var(--mute);margin-bottom:22px}
+.tool{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:20px;align-items:stretch}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+form label{display:block;font-size:14px;font-weight:600;margin:0 0 4px}
+.field{margin-bottom:14px}
+input,select{font:16px Inter,sans-serif;width:100%;min-height:44px;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.money{position:relative}.money span{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--mute)}.money input{padding-left:24px}
+.fine{font-size:13px;color:var(--mute);margin:10px 0 0}
+.res h2{margin-bottom:6px}
+.res .sub{color:var(--mute);font-size:14px;margin-bottom:14px}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:12px;margin-bottom:8px}
+.fig1{border-top:2px solid var(--line);padding-top:8px}
+.fig1 b{display:block;font:700 clamp(28px,3.6vw,40px)/1.1 "Space Grotesk",sans-serif;white-space:nowrap}
+.fig1 small{font-size:14px;color:var(--mute)}
+.over b{color:var(--pinkt)}.under b{color:var(--good)}
+.fig{position:relative;min-height:230px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+svg text{font:13px Inter,sans-serif;fill:var(--ink);paint-order:stroke;stroke:var(--card);stroke-width:4px}
+.lock{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;padding:16px;font-size:15px}
+.fig.locked .lock{display:flex}.fig.locked svg{filter:blur(7px);opacity:.5}
+.lock b{font:700 20px "Space Grotesk",sans-serif;max-width:22ch}
+.lock span{color:var(--mute)}
+.etag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;border:1.5px dashed var(--mute);color:var(--mute);white-space:nowrap}
+.est{color:var(--mute)}
+.vtag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--good);color:var(--card)}
+.tip{display:block;margin-top:10px;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--pink) 10%,var(--card));font-size:15px}
+.tip b{white-space:normal}
+.strip{background:var(--ink);color:var(--bg)}
+.strip .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+.strip p{color:color-mix(in srgb,var(--bg) 80%,transparent)}
+pre{white-space:pre-wrap;background:var(--bg);color:var(--ink);border-radius:14px;padding:18px;font:15px/1.6 Inter,sans-serif;margin:0 0 12px;max-width:none}
+.ad{max-width:970px;margin:0 auto;border:1.5px dashed var(--line);border-radius:10px;padding:18px;text-align:center;color:var(--mute);font-size:13px}
+.browse{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:28px;align-items:start}
+.inline{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.inline input{width:9em;flex:none}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+th{font-size:13px;color:var(--mute);font-weight:600}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--good);color:var(--card);margin-left:6px;white-space:nowrap}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
+.steps .panel b{font:700 34px "Space Grotesk",sans-serif;color:var(--pinkt)}
+.privacy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:18px}
+.privacy ul{margin:0;padding-left:20px}
+.privacy li{margin-bottom:6px}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{font-weight:600;cursor:pointer;font-size:17px;min-height:28px}
+details p{margin:10px 0 0}
+footer{background:var(--ink);color:var(--bg)}
+footer .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between;font-size:14px}
+footer a{color:inherit}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:15px;opacity:0;pointer-events:none;transition:opacity .3s;max-width:92vw}
+.toast.on{opacity:1}
+.dot{transition:cx .5s,cy .5s}
+@media(prefers-reduced-motion:reduce){.dot,.toast{transition:none}}
+@media(max-width:860px){.tool,.browse,.strip .wrap,.privacy{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.tool .res{order:-1}.links{display:none}table{font-size:13px}th,td{padding:6px 4px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0}.stack td::before{content:attr(data-l);color:var(--mute)}}
+.demo{background:#ff2e7e;color:#fff;text-align:center;font-size:14px;font-weight:600;padding:8px 16px}
+.demo[hidden]{display:none}
+.scroll{overflow-x:auto}
+button:disabled{opacity:.6;cursor:wait}
+.crumbs{font-size:14px;color:var(--mute);margin-bottom:10px}.crumbs a{color:inherit}
+.prose{max-width:760px}.prose h2{margin-top:32px}.prose li{margin-bottom:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:14px;margin-top:14px}
+.cards a{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.cards a b{display:block;font:700 18px "Space Grotesk",sans-serif}.cards a span{color:var(--mute);font-size:14px}
+.updated{font-size:13px;color:var(--mute)}
