@@ -65,17 +65,17 @@ Dale **Commit changes**. En un par de minutos la web se actualiza. El `site_url`
 2. Crea un proyecto nuevo: **New project**, de nombre `fairbill`, región **East US**.
 3. Ve a **SQL Editor → New query**. Pega todo `supabase/schema.sql` y dale **Run**.
 4. Haz otra **New query**, pega `supabase/plans.sql` y dale **Run**.
-5. En **Project Settings → API** copia la **Project URL** y la **anon public key**.
+5. En **Project Settings → API Keys** copia la **Project URL** y la **Publishable key** (empieza con `sb_publishable_`).
 6. En GitHub, edita `data/config.json` y pégalas:
 
 ```json
 "supabase_url": "https://abcd1234.supabase.co",
-"supabase_anon_key": "eyJ...",
+"supabase_anon_key": "sb_publishable_...",
 ```
 
 7. Dale **Commit**. Cuando GitHub termine de publicar, la franja rosada de "Demo mode" desaparece: la web ya guarda recibos reales.
 
-> La clave **anon** es pública por diseño: las reglas de la base de datos solo dejan **agregar** recibos y leer resúmenes. **Nunca** pongas la clave `service_role`.
+> La clave **publishable** es pública por diseño: las reglas de la base de datos solo dejan **agregar** recibos y leer resúmenes. **Nunca** pongas una clave secreta (`sb_secret_...` o `service_role`).
 
 ## Paso 4. Que Google te encuentre (incluidos sus resúmenes con IA) · 15 minutos
 

@@ -77,6 +77,11 @@ create policy "anyone can add a report" on public.reports for insert to anon wit
 drop policy if exists "anyone can read plans" on public.plans;
 create policy "anyone can read plans" on public.plans for select to anon using (true);
 
+-- Table permissions for website visitors (needed when Supabase doesn't grant them automatically)
+grant usage on schema public to anon;
+grant insert on public.reports to anon;
+grant select on public.plans to anon;
+
 -- 5. What the website reads: summaries per ZIP, only for plans with 5+ reports.
 --    Verified reports count double. Last 12 months only.
 create or replace function public.zip_stats(z text)
