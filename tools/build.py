@@ -264,6 +264,8 @@ urls = "".join(f"  <url><loc>{SITE}/{p}</loc><lastmod>{TODAY}</lastmod></url>\n"
 R404 = SITE + "/"
 (OUT / "404.html").write_text(head("Page not found · Fairbill", "This page doesn't exist.", "404.html", R404, {"@context": "https://schema.org", **ORG}).replace(f'<link rel="canonical" href="{SITE}/404.html">\n', '<meta name="robots" content="noindex">\n') +
     f'<body>{NAV.format(r=R404)}<main class="band"><div class="wrap prose"><h1>Page not found</h1><p><a class="btn pink" href="{R404}">Go to Fairbill</a></p></div></main></body></html>', encoding="utf-8")
+for f in DATA.glob("google*.html"):   # Google Search Console verification files
+    shutil.copy(f, OUT / f.name)
 if (DATA / "ads.txt").exists():
     shutil.copy(DATA / "ads.txt", OUT / "ads.txt")
 if (DATA / "CNAME").exists():
